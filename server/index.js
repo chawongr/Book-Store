@@ -16,7 +16,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "cdwwdc2545",
-  database: "book-store",
+  database: "book-store"
 });
 
 db.connect((err) => {
@@ -32,12 +32,12 @@ app.get("/", function (req, res) {
 });
 
 app.post("/register", (req, res) => {
-  const sql = "INSERT INTO authen (`name`,`email`,`password`) VALUES (?)";
+  const sql = "INSERT INTO authen (`name`,`email`,`password`) VALUES ('baipoo','baipoo1@gmail.com','asd1234')";
   bcrypt.hash(req.body.password.toString(), salt, (err, hash) => {
     if (err) return res.json({ Error: "Hashing password error" });
     const values = [req.body.name, req.body.email, hash];
-    db.query(sql, [values], (err, result) => {
-      if (err) return res.json({ Error: "Inserting error" });
+    db.query(sql, (err, result) => {
+      if (err) return res.json(err);
       return res.json({ Status: "Success" });
     });
   });
