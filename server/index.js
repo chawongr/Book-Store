@@ -12,28 +12,31 @@ const salt = 10;
 const app = express();
 
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public/images')
-    },
-    filename: (req,file, cb) => {
-        cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname))
-    }
-})
+  destination: (req, file, cb) => {
+    cb(null, "public/images");
+  },
+  filename: (req, file, cb) => {
+    cb(
+      null,
+      file.fieldname + "_" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
 
 const upload = multer({
-    storage: storage
-})
+  storage: storage,
+});
 
 app.use(express.json());
 app.use(
   cors({
     origin: ["http://localhost:5173"],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
   })
 );
 app.use(cookieParser());
-app.use(express.static('public'))
+app.use(express.static("public"));
 
 // ============================= Authen ===============================
 
@@ -123,52 +126,68 @@ app.get("/books", (req, res) => {
   const sql = "SELECT * FROM books";
   db.query(sql, (err, data) => {
     if (err) {
-        console.log(err)
+      console.log(err);
       return res.json(err);
     }
     return res.json(data);
   });
 });
-app.post("/books", (req, res) => {
-    const sql =
-      "INSERT INTO books (`name`, `description`, `editor`, `price`, `author`, `subtitle`, `image`) VALUES (?)";
-    const values = [
-      req.body.name,
-      req.body.description,
-      req.body.editor,
-      req.body.price,
-      req.body.author,
-      req.body.subtitle,
-      req.body.image
-    ];
-  
-    db.query(sql, [values], (err, data) => {
-      if (err) {
-        console.log(err);
-        return res.json(err);
-      }
-      return res.json("Created successfully");
-    });
+
+app.post("/books", upload.single("image"), (req, res) => {
+  const sql =
+    "INSERT INTO books (`name`, `description`, `editor`, `price`, `author`, `subtitle`, `image`) VALUES (?)";
+  const values = [
+    req.body.name,
+    req.body.description,
+    req.body.editor,
+    req.body.price,
+    req.body.author,
+    req.body.subtitle,
+    req.file.filename
+  ];
+
+  db.query(sql, [values], (err, data) => {
+    if (err) {
+      console.log(err);
+      return res.json(err);
+    }
+    return res.json("Created successfully");
   });
-  
-  app.post('/upload',upload.single('image'), (req,res) => {
-      const image = req.file.filename
-      const sql = "UPDATE books SET image = ?"
-      db.query(sql, [image], (err, result) => {
-          if (err) return res.json({Message: "Error"});
-          return res.json({ Status: "Success" });
-        });
-  })
+});
 
+app.delete("/books/:id", (req, res) => {
+  const bookId = req.params.id;
+  const sql = "DELETE FROM books WHERE id = ?";
+  db.query(sql, [bookId], (err, data) => {
+    if (err) {
+      console.log(err);
+      return res.json({ message: "Error deleting book" });
+    }
+    return res.json({ status: "Deleted book" });
+  });
+});
 
-// app.post('/upload',upload.single('image'), (req,res) => {
-//     const image = req.file.filename
-//     const sql = "UPDATE books SET image = ?"
-//     db.query(sql, [image], (err, result) => {
-//         if (err) return res.json({Message: "Error"});
-//         return res.json({ Status: "Success" });
-//       });
-// })
+app.put("/books/:id", (req, res) => {
+  const bookId = req.params.id;
+  const sql =
+    "UPDATE books SET `name` = ?, `description` = ?, `editor` = ?, `price` = ?, `author` = ?, `subtitle` = ?, `image` = ? WHERE id = ?";
+  const values = [
+    req.body.name,
+    req.body.description,
+    req.body.editor,
+    req.body.price,
+    req.body.author,
+    req.body.subtitle,
+    req.file.filename
+  ];
+  db.query(sql, [...values,bookId], (err, data) => {
+    if (err) {
+      console.log(err);
+      return res.json(err);
+    }
+    return res.json("updated success");
+  });
+});
 
 // ===================================================================
 
