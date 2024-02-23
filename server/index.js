@@ -143,7 +143,7 @@ app.post("/books", upload.single("image"), (req, res) => {
     req.body.price,
     req.body.author,
     req.body.subtitle,
-    req.file.filename
+    req.file.filename,
   ];
 
   db.query(sql, [values], (err, data) => {
@@ -167,7 +167,7 @@ app.delete("/books/:id", (req, res) => {
   });
 });
 
-app.put("/books/:id", (req, res) => {
+app.put("/books/:id", upload.single("image"), (req, res) => {
   const bookId = req.params.id;
   const sql =
     "UPDATE books SET `name` = ?, `description` = ?, `editor` = ?, `price` = ?, `author` = ?, `subtitle` = ?, `image` = ? WHERE id = ?";
@@ -178,14 +178,16 @@ app.put("/books/:id", (req, res) => {
     req.body.price,
     req.body.author,
     req.body.subtitle,
-    req.file.filename
+    req.file ? req.file.filename : req.body.image,
+    bookId,
   ];
-  db.query(sql, [...values,bookId], (err, data) => {
+
+  db.query(sql, values, (err, data) => {
     if (err) {
       console.log(err);
-      return res.json(err);
+      return res.status(500).json({ error: "Internal server error" });
     }
-    return res.json("updated success");
+    return res.json({ message: "Updated successfully" });
   });
 });
 
