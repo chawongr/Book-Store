@@ -7,7 +7,7 @@ const Banner = () => {
             <div className=' w-1/2 my-auto'>
                 <div className='text-[64px] font-bold'>Hi admin</div>
                 <br />
-                <div className='text-[24px]'>
+                <div className='text-[24px] font-light'>
                     Rushing to the bookstore, excitement builds, craving the stories waiting on shelves. Each book holds promise, beckoning with adventures, knowledge, and escape into worlds unknown</div>
                 <br />
                 <button className='bg-black text-white px-12 py-2 text-[24px] rounded-full'><Link to="/login">Get start!</Link></button>
