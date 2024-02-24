@@ -6,7 +6,7 @@ const Update = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const bookId = location.pathname.split("/")[2]
-    
+
     const [formData, setFormData] = useState({
         name: "",
         description: "",
@@ -31,7 +31,7 @@ const Update = () => {
             formDataToSend.append(key, value);
         });
 
-        axios.put("http://localhost:3001/books/"+bookId, formDataToSend)
+        axios.put("http://localhost:3001/books/" + bookId, formDataToSend)
             .then((res) => {
                 console.log(res);
                 navigate("/book");
@@ -56,5 +56,3 @@ const Update = () => {
 };
 
 export default Update;
-
-
