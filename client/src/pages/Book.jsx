@@ -48,7 +48,7 @@ const Book = () => {
     );
 
     return (
-        <div className='bg-[#f0eee2] h-screen'>
+        <div className='bg-[#f0eee2] '>
             <div className='mx-auto w-[1500px]'>
                 <div className='flex flex-col'>
                     <Banner />
@@ -57,14 +57,14 @@ const Book = () => {
                         <div className='flex justify-between'>
                             <div className="relative w-11/12 mx-5">
                                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                    <svg className="w-6 h-4 text-black " aria-hidden="true" fill="none" viewBox="0 0 20 20">
+                                    <svg className="w-7 h-5 text-black " aria-hidden="true" fill="none" viewBox="0 0 20 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                     </svg>
                                 </div>
                                 <input
                                     type="text"
-                                    className="block w-full p-4 ps-10 text-sm text-gray-900 border-2 border-black rounded-full bg-transparent placeholder-zinc-700"
+                                    className="block w-full p-4 ps-10 text-[20px] text-gray-900 border-2 border-black rounded-full bg-transparent placeholder-zinc-700 focus:outline-none"
                                     placeholder="Search by book name..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -76,11 +76,11 @@ const Book = () => {
                             </button>
                         </div>
 
-                        <div className='grid grid-cols-5 mt-10'>
+                        <div className='grid grid-cols-5 '>
                             {filteredBooks.map((book) => (
                                 <div key={book.id} className='w-[200px] mx-auto'>
                                     <div>
-                                        <div className='flex flex-col'>
+                                        <div className='flex flex-col mt-10'>
                                             <img
                                                 src={`http://localhost:3001/images/` + book.image}
                                                 className='w-full hover:scale-110'
@@ -116,10 +116,10 @@ const Book = () => {
             <Modal
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
-                className='w-2/3 h-fit my-auto mx-auto z-50 fixed inset-0 flex items-center justify-center '
+                className='w-2/3 h-fit my-auto mx-auto z-50 fixed inset-0 flex items-center justify-center focus:outline-none'
             >
                 {selectedBook && (
-                    <div className='flex flex-col items-center  bg-[#f0eee2] w-full h-[800px] rounded-[70px] p-[70px]'>
+                    <div className='flex flex-col items-center  bg-[#f0eee2] w-full h-850 rounded-[70px] p-[70px]'>
 
                         <div className=' w-full flex justify-between'>
 
@@ -160,7 +160,7 @@ const Book = () => {
                         <div className='w-full flex justify-between mt-[4%]'>
                             <div className=' w-1/2'>
                                 <div className='text-[30px] font-light'>Description</div>
-                                <div className='text-[22px] font-light'>{selectedBook.description}</div>
+                                <div className='text-[22px] font-light mt-3'>{selectedBook.description}</div>
                             </div>
                             <div className=' w-5/12'>
                                 <div className='text-[30px] font-light'>Editor</div>
