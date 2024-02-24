@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const CUModal = ({ formData, handleChange, handleSubmit }) => {
     return (
         <div className=''>
-            <div className='w-2/3 h-fit my-auto mx-auto fixed z-50  inset-0 flex items-center justify-center focus:outline-none'>
-                <div className='flex flex-col items-center bg-white w-full h-850 rounded-[70px] p-[70px]'>
+            <div className='w-2/3 h-fit my-auto mx-auto fixed z-50 inset-0 flex items-center justify-center focus:outline-none'>
+                <div className='flex flex-col items-center bg-white w-full h-[650px] rounded-[50px] p-[40px]'>
                     <div className=' w-full flex justify-around '>
                         <div className='flex flex-col w-5/12'>
                             <div className='flex justify-center'>
@@ -19,10 +19,10 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                                     />
                                 </div>
                                 <div className='w-full'>
-                                    <div className='text-[30px] font-light'>Cover book</div>
+                                    <div className='text-[24px] font-light'>Cover book</div>
                                     <div className="relative">
                                         {formData.image ? (
-                                            <div className=' rounded-xl h-[250px] flex items-center  bg-[#f0eee2]'>
+                                            <div className=' rounded-xl h-[230px] flex items-center  bg-[#f0eee2]'>
                                                 <img
                                                     src={URL.createObjectURL(formData.image)}
                                                     alt="Selected Image"
@@ -30,7 +30,7 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                                                 />
                                             </div>
                                         ) : (
-                                            <div className=' rounded-xl h-[250px] flex items-center  bg-[#f0eee2]'>
+                                            <div className=' rounded-xl h-[230px] flex items-center  bg-[#f0eee2]'>
                                                 <svg width="500" height="126" viewBox="0 0 426 426" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M353.25 10.5V72.75M353.25 72.75V135M353.25 72.75H415.5M353.25 72.75H291"
@@ -63,7 +63,7 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                         <div className='flex flex-col w-5/12'>
                             <div className=''>
                                 <div className='flex flex-col'>
-                                    <div className='text-[30px] font-light'>Name</div>
+                                    <div className='text-[24px] font-light'>Name</div>
                                     <input
                                         onChange={handleChange}
                                         type="text"
@@ -71,7 +71,7 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                                         name='name'
                                         className='bg-[#f0eee2] rounded-xl px-3 py-2 placeholder-zinc-700 focus:outline-none'
                                     />
-                                    <div className='text-[30px] font-light mt-3'>Author</div>
+                                    <div className='text-[24px] font-light mt-3'>Author</div>
 
                                     <input
                                         onChange={handleChange}
@@ -80,7 +80,7 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                                         name='author'
                                         className='bg-[#f0eee2] rounded-xl px-3 py-2 placeholder-zinc-700 focus:outline-none'
                                     />
-                                    <div className='text-[30px] font-light mt-3'>Sub Title</div>
+                                    <div className='text-[24px] font-light mt-3'>Sub Title</div>
                                     <input
                                         onChange={handleChange}
                                         type="text"
@@ -93,9 +93,9 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                         </div>
                     </div>
 
-                    <div className='w-full flex justify-around mt-[4%]'>
+                    <div className='w-full flex justify-around mt-10'>
                         <div className='w-5/12'>
-                            <div className='text-[30px] font-light'>Description</div>
+                            <div className='text-[24px] font-light'>Description</div>
                             <textarea
                                 onChange={handleChange}
                                 type="textarea"
@@ -106,7 +106,7 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                             <button className='mt-10 text-[24px] text-zinc-500 hover:underline'><Link to='/book'>Back</Link></button>
                         </div>
                         <div className=' w-5/12 flex flex-col'>
-                            <div className='text-[30px] font-light'>Editor</div>
+                            <div className='text-[24px] font-light'>Editor</div>
                             <input
                                 onChange={handleChange}
                                 type="text"
@@ -114,7 +114,7 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                                 name='editor'
                                 className='bg-[#f0eee2] rounded-xl px-3 py-2 placeholder-zinc-700 focus:outline-none'
                             />
-                            <div className='text-[30px] font-light mt-3'>Price</div>
+                            <div className='text-[24px] font-light mt-3'>Price</div>
                             <input
                                 onChange={handleChange}
                                 type="number"
