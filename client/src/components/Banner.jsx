@@ -45,6 +45,8 @@ const Banner = () => {
         axios.get(import.meta.env.VITE_REACT_APP_API_URL +  '/logout')
             .then(res => {
                 location.reload(true);
+                setAuth(false)
+                setAuthen(false)
             })
             .catch(err => console.log(err));
     };
