@@ -157,19 +157,18 @@ const Book = () => {
                                                 className='text-white bg-[#488f56] ml-2 px-4 py-2 rounded-full  hover:scale-110 hover:duration-150 shadow-xl'>
                                                 Reserve
                                             </button>
-
                                         </div>
                                     ) : (
-                                        <div className='mt-2'>
+                                        <div className='mt-10'>
                                             <div className='flex'>
-                                                <div className='text-[21px] font-light'>Status:</div>
-                                                <div className='ml-2 text-[21px] font-semibold text-[#e16868]'>Reserved</div>
+                                                <div className='text-[21px] font-light'>Reserved by:</div>
+                                                <div className='ml-2 text-[21px] font-semibold text-[#62c637]'>{selectedBook.borrow}</div>
+                                                <button
+                                                    className='bg-[#65d8e1] px-8 py-2 rounded-full shadow-lg text-white ml-3'
+                                                    onClick={() => { handleUpdate(selectedBook.id, 'Free'); closeModal(); }} >
+                                                    Return
+                                                </button>
                                             </div>
-                                            <button
-                                                className='bg-[#65d8e1] px-8 py-2 rounded-full shadow-lg text-white'
-                                                onClick={() => { handleUpdate(selectedBook.id, 'Free'); closeModal(); }} >
-                                                Return
-                                            </button>
                                         </div>
                                     )}
                                 </div>
