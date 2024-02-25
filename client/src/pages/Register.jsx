@@ -66,7 +66,7 @@ const Register = () => {
                     </label>
                   </div>
                 </div>
-                <button type="submit" className="w-full text-white bg-black hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-[20px] text-[22px] px-5 py-2.5 text-center ">
+                <button type="submit" className="w-full text-white bg-black hover:bg-primary-700 focus:ring-4 focus:outline-none font-medium rounded-[20px] text-[22px] px-5 py-2.5 text-center ">
                   Create an account
                 </button>
                 <p className="text-[22px] font-light text-gray-500 ">

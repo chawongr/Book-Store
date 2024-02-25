@@ -11,6 +11,8 @@ const salt = 10;
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "public/images");
@@ -44,8 +46,7 @@ const db = mysql.createConnection({
   host: "monorail.proxy.rlwy.net",
   user: "root",
   password: "EEH4FF-5D5b-faCBH4-5bGg1Ca1-51f1",
-  database: "railway",
-  port:26056
+  database: "railway"
 });
 
 db.connect((err) => {
@@ -213,6 +214,6 @@ app.put('/books/:id/reserve', (req, res) => {
 
 // ===================================================================
 
-app.listen(3001, () => {
+app.listen(port, "0.0.0.0", function () {
   console.log("Server is running");
 });
