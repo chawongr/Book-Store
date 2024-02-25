@@ -33,7 +33,7 @@ const Update = () => {
                 formDataToSend.append(key, value);
             });
 
-            axios.put(import.meta.env.VITE_REACT_APP_API_URL +  `/books/${id}`, formDataToSend)
+            axios.put(import.meta.env.VITE_REACT_APP_API_URL +  `/books/${bookId}`, formDataToSend)
                 .then((res) => {
                     console.log(res);
                     navigate("/book");
