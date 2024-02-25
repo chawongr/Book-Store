@@ -132,7 +132,6 @@ const Book = () => {
                                 />
                             </div>
                             <div className='flex flex-col w-1/2'>
-
                                 <div className=''>
                                     <div className=''>
                                         <div className='text-[36px] text-ellipsis overflow-hidden w-[1/2] h-[100px]'><div>{selectedBook.name}</div></div>
