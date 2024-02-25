@@ -123,7 +123,7 @@ const Book = () => {
 
                             <div className=' w-1/2 flex justify-center'>
                                 <img
-                                    src={import.meta.env.VITE_REACT_APP_API_URL +  '/images' + selectedBook.image}
+                                    src={import.meta.env.VITE_REACT_APP_API_URL +  '/images/' + selectedBook.image}
                                     className='w-[145px] h-[210px] object-cover'
                                     style={{ boxShadow: '-12px 15px 10px 2px #545353' }}
                                     onClick={() => handleImageClick(selectedBook)}
