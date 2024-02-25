@@ -96,8 +96,8 @@ const Book = () => {
                                                 style={{ boxShadow: '-12px 15px 10px 2px #545353' }}
                                                 onClick={() => handleImageClick(book)}
                                             />
-                                            <div className='text-[21px] font-extralight w-full mt-7 text-ellipsis overflow-hidden'>
-                                                {book.name}
+                                            <div className='text-[21px] font-extralight w-[240px] h-[70px] mt-7 text-ellipsis overflow-hidden ...'>
+                                                <div>{book.name}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -135,9 +135,9 @@ const Book = () => {
 
                                 <div className=''>
                                     <div className=''>
-                                        <div className='text-[36px] text-ellipsis overflow-hidden'>{selectedBook.name}</div>
-                                        <div className='text-[21px] font-normal mt-3 text-ellipsis overflow-hidden'>{selectedBook.author}</div>
-                                        <div className='text-[16px] font-light mt-3 text-ellipsis overflow-hidden'>{selectedBook.subtitle}</div>
+                                        <div className='text-[36px] text-ellipsis overflow-hidden w-[1/2] h-[100px]'><div>{selectedBook.name}</div></div>
+                                        <div className='text-[21px] font-normal mt-5 truncate w-[1/2] h-[70px]'><div>{selectedBook.author}</div></div>
+                                        <div className='text-[16px] font-light  truncate'>{selectedBook.subtitle}</div>
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@ const Book = () => {
                             </div>
                             <div className=' w-5/12'>
                                 <div className='text-[21px] font-normal'>Editor</div>
-                                <div className='text-[16px] font-light mt-3 text-ellipsis overflow-hidden'>{selectedBook.editor}</div>
+                                <div className='text-[16px] font-light mt-3 text-ellipsis overflow-hidden h-[50px]'>{selectedBook.editor}</div>
                                 <div className='text-[21px] font-normal mt-5 '>Price</div>
                                 <div className='text-[16px] font-light mt-3'>{selectedBook.price} $</div>
                                 <div className='flex flex-row mt-3 justify-end'>

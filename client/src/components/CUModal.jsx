@@ -67,7 +67,7 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                                     <input
                                         onChange={handleChange}
                                         type="text"
-                                        placeholder='name'
+                                        placeholder='Enter name'
                                         name='name'
                                         className='bg-[#f0eee2] rounded-xl px-3 py-2 placeholder-zinc-700 focus:outline-none'
                                     />
@@ -76,15 +76,15 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                                     <input
                                         onChange={handleChange}
                                         type="text"
-                                        placeholder='author'
+                                        placeholder='Enter author'
                                         name='author'
                                         className='bg-[#f0eee2] rounded-xl px-3 py-2 placeholder-zinc-700 focus:outline-none'
                                     />
-                                    <div className='text-[24px] font-light mt-3'>Sub Title</div>
+                                    <div className='text-[24px] font-light mt-3'>Subtitle</div>
                                     <input
                                         onChange={handleChange}
                                         type="text"
-                                        placeholder='subtitle'
+                                        placeholder='Enter subtitle'
                                         name='subtitle'
                                         className='bg-[#f0eee2] rounded-xl px-3 py-2 placeholder-zinc-700 focus:outline-none'
                                     />
@@ -99,7 +99,7 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                             <textarea
                                 onChange={handleChange}
                                 type="textarea"
-                                placeholder='description'
+                                placeholder='Enter description'
                                 name='description'
                                 className='bg-[#f0eee2] rounded-xl px-3 py-3 w-full  placeholder-zinc-700 focus:outline-none h-[140px]'
                             />
@@ -110,7 +110,7 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                             <input
                                 onChange={handleChange}
                                 type="text"
-                                placeholder='editor'
+                                placeholder='Enter editor'
                                 name='editor'
                                 className='bg-[#f0eee2] rounded-xl px-3 py-2 placeholder-zinc-700 focus:outline-none'
                             />
@@ -118,13 +118,13 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                             <input
                                 onChange={handleChange}
                                 type="number"
-                                placeholder='price'
+                                placeholder='$'
                                 name='price'
                                 className='bg-[#f0eee2] rounded-xl px-3 py-2 placeholder-zinc-700 focus:outline-none'
                             />
                             <button
                                 onClick={handleSubmit}
-                                className='bg-black text-white rounded-xl mt-9 px-3 py-3 text-[20px]'>
+                                className='bg-black text-white rounded-xl mt-9 px-3 py-3 text-[20px] hover:scale-105 duration-150 shadow-lg'>
                                 Confirm
                             </button>
                         </div>

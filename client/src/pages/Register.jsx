@@ -39,23 +39,23 @@ const Register = () => {
                   <label htmlFor="text" className="block mb-2 text-[22px] font-medium text-gray-900">
                     Your name
                   </label>
-                  <input onChange={e => setValues({ ...values, name: e.target.value })} type="text" name="name" id="name" className="bg-transparent border-2 border-black text-gray-900 sm:text-[22px] rounded-[20px] focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name" required />
+                  <input onChange={e => setValues({ ...values, name: e.target.value })} type="text" name="name" id="name" className="bg-transparent border-2 border-black text-gray-900 sm:text-[22px] rounded-[20px] focus:outline-none block w-full p-2.5 " placeholder="name" required />
                 </div>
                 <div>
                   <label htmlFor="email" className="block mb-2 text-[22px] font-medium text-gray-900">
                     Your email
                   </label>
-                  <input onChange={e => setValues({ ...values, email: e.target.value })} type="email" name="email" id="email" className="bg-transparent border-2 border-black text-gray-900 sm:text-[22px] rounded-[20px] focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com" required />
+                  <input onChange={e => setValues({ ...values, email: e.target.value })} type="email" name="email" id="email" className="bg-transparent border-2 border-black text-gray-900 sm:text-[22px] rounded-[20px] focus:outline-none block w-full p-2.5 " placeholder="name@company.com" required />
                 </div>
                 <div>
                   <label htmlFor="password" className="block mb-2 text-[22px] font-medium text-gray-900">
                     Password
                   </label>
-                  <input onChange={e => setValues({ ...values, password: e.target.value })} type="password" name="password" id="password" placeholder="••••••••" className="bg-transparent border-2 border-black text-gray-900 sm:text-[22px] rounded-[20px] focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required />
+                  <input onChange={e => setValues({ ...values, password: e.target.value })} type="password" name="password" id="password" placeholder="••••••••" className="bg-transparent border-2 border-black text-gray-900 sm:text-[22px] rounded-[20px] focus:outline-none block w-full p-2.5 " required />
                 </div>
                 <div className="flex items-start">
                   <div className="flex items-center h-5">
-                    <input id="terms" aria-describedby="terms" type="checkbox" className="mt-3 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 " />
+                    <input id="terms" aria-describedby="terms" type="checkbox" className="mt-3 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:outline-none " />
                   </div>
                   <div className="ml-3 text-[22px]">
                     <label htmlFor="terms" className="font-light text-gray-500 ">
