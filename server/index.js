@@ -30,14 +30,25 @@ const upload = multer({
 });
 
 app.use(express.json());
+
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
 app.use(
   cors({
     origin: ["https://book-store-ten-sigma.vercel.app/"],
     methods: ["POST", "GET", "DELETE", "PUT"],
-    credentials: true,
+    credentials: true
   })
 );
+
 app.use(cookieParser());
+
 app.use(express.static("public"));
 
 // ============================= Authen ===============================
@@ -105,7 +116,7 @@ app.post("/login", (req, res) => {
             const token = jwt.sign({ name }, "jwt-secret-key", {
               expiresIn: "1d",
             });
-            res.cookie("token", token);
+            res.cookie("token", token, { sameSite: 'none', secure: true});
             return res.json({ Status: "Success" });
           } else {
             return res.json({ Error: "Password not matched" });
