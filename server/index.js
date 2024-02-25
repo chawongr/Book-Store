@@ -32,7 +32,7 @@ const upload = multer({
 app.use(express.json());
 app.use(
   cors({
-    origin: ["*"],
+    origin: ["https://book-store-ajl5uzwwl-chawongrs-projects.vercel.app/"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
   })
