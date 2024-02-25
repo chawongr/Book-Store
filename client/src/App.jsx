@@ -37,10 +37,10 @@ function App() {
         setLoading(false)
 
       })
-      .then(err => console.log(err))
-  }, []).finally(() => {
-    console.log('Experiment completed');
-  });
+      .then(err => console.log(err)).finally(() => {
+        console.log('Experiment completed');
+      });
+  }, [])
 
   if (isLoading) {
     return (
