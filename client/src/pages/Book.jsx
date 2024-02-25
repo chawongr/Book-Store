@@ -12,7 +12,7 @@ const Book = () => {
    
     const fetchAllBooks = async () => {
         try {
-            const res = await axios.get('http://localhost:3001/books');
+            const res = await axios.get(import.meta.env.VITE_REACT_APP_API_URL +  '/books');
             setBooks(res.data);
         } catch (err) {
             console.log(err);
@@ -22,10 +22,9 @@ const Book = () => {
     useEffect(() => {
         fetchAllBooks();
     }, []);
-
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3001/books/${id}`);
+            await axios.delete(import.meta.env.VITE_REACT_APP_API_URL +  `/books/${id}` );
             const updatedBooks = books.filter(book => book.id !== id);
             setBooks(updatedBooks);
             setIsModalOpen(false);
@@ -49,10 +48,9 @@ const Book = () => {
     );
 
     const [borrower, setBorrower] = useState('Free');
-
     const handleUpdate = async (id, borrower) => {
         try {
-            const response = await axios.put(`http://localhost:3001/books/${id}/reserve`, { borrower: borrower });
+            const response = await axios.put(import.meta.env.VITE_REACT_APP_API_URL +  `/books/${id}/reserve`, { borrower: borrower });
             await fetchAllBooks()
             console.log(response.data);
         } catch (err) {
@@ -91,7 +89,7 @@ const Book = () => {
                                     <div>
                                         <div className='flex flex-col mb-10'>
                                             <img
-                                                src={`http://localhost:3001/images/` + book.image}
+                                                src={import.meta.env.VITE_REACT_APP_API_URL +  '/books' + book.image}
                                                 className='hover:scale-110 duration-150 w-full h-[350px] object-cover'
                                                 style={{ boxShadow: '-12px 15px 10px 2px #545353' }}
                                                 onClick={() => handleImageClick(book)}
@@ -125,7 +123,7 @@ const Book = () => {
 
                             <div className=' w-1/2 flex justify-center'>
                                 <img
-                                    src={`http://localhost:3001/images/` + selectedBook.image}
+                                    src={import.meta.env.VITE_REACT_APP_API_URL +  '/images' + selectedBook.image}
                                     className='w-[145px] h-[210px] object-cover'
                                     style={{ boxShadow: '-12px 15px 10px 2px #545353' }}
                                     onClick={() => handleImageClick(selectedBook)}

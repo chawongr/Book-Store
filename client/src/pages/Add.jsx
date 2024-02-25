@@ -31,9 +31,8 @@ const Add = () => {
             Object.entries(formData).forEach(([key, value]) => {
                 formDataToSend.append(key, value);
             });
-
             axios
-                .post('http://localhost:3001/books', formDataToSend)
+                .post(import.meta.env.VITE_REACT_APP_API_URL +  '/books', formDataToSend)
                 .then((res) => {
                     console.log(res);
                     navigate('/book');
