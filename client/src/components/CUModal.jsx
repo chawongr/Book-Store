@@ -125,12 +125,11 @@ const CUModal = ({ formData, handleChange, handleSubmit }) => {
                             <button
                                 onClick={handleSubmit}
                                 className='bg-black text-white rounded-xl mt-9 px-3 py-3 text-[20px]'>
-                                Add
+                                Confirm
                             </button>
                         </div>
                     </div>
                 </div>
-                {/* <button className='' onClick={closeModal}>Close Modal</button> */}
             </div>
         </div>
     );
