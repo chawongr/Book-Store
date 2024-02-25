@@ -80,10 +80,7 @@ const Register = () => {
     //   </p>
     // </form>
 
-    //       </div>
-    //     </div>
-    //   </div>
-    // </section>
+
     <div className='flex justify-between mx-auto'>
       <div className='w-1/2 my-auto '>
 

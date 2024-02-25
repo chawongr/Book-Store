@@ -9,16 +9,26 @@ const Book = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedBook, setSelectedBook] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+   
+
+    const fetchAllBooks = async () => {
+        try {
+            const res = await axios.get('http://localhost:3001/books');
+            setBooks(res.data);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     useEffect(() => {
-        const fetchAllBooks = async () => {
-            try {
-                const res = await axios.get('http://localhost:3001/books');
-                setBooks(res.data);
-            } catch (err) {
-                console.log(err);
-            }
-        };
+        // const fetchAllBooks = async () => {
+        //     try {
+        //         const res = await axios.get('http://localhost:3001/books');
+        //         setBooks(res.data);
+        //     } catch (err) {
+        //         console.log(err);
+        //     }
+        // };
         fetchAllBooks();
     }, []);
 
@@ -52,11 +62,16 @@ const Book = () => {
     const handleUpdate = async (id, borrower) => {
         try {
             const response = await axios.put(`http://localhost:3001/books/${id}/reserve`, { borrower: borrower });
+            await fetchAllBooks()
             console.log(response.data);
         } catch (err) {
             console.log(err);
         }
     };
+
+
+
+
 
     return (
         <div className='h-screen'>
@@ -90,7 +105,7 @@ const Book = () => {
                                         <div className='flex flex-col mb-10'>
                                             <img
                                                 src={`http://localhost:3001/images/` + book.image}
-                                                className='hover:scale-110 w-full h-[350px] object-cover'
+                                                className='hover:scale-110 duration-150 w-full h-[350px] object-cover'
                                                 style={{ boxShadow: '-12px 15px 10px 2px #545353' }}
                                                 onClick={() => handleImageClick(book)}
                                             />
@@ -162,7 +177,7 @@ const Book = () => {
                                         <div className='mt-10'>
                                             <div className='flex'>
                                                 <div className='text-[21px] font-light'>Reserved by:</div>
-                                                <div className='ml-2 text-[21px] font-semibold text-[#62c637]'>{selectedBook.borrow}</div>
+                                                <div className='ml-2 text-[21px] font-semibold text-[#e38d50]'>{selectedBook.borrow}</div>
                                                 <button
                                                     className='bg-[#65d8e1] px-8 py-2 rounded-full shadow-lg text-white ml-3'
                                                     onClick={() => { handleUpdate(selectedBook.id, 'Free'); closeModal(); }} >

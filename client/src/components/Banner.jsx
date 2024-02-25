@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { AuthContext } from '../util/AuthContext'
 
 const Banner = () => {
+
+    const {authen,setAuthen} = useContext(AuthContext)
 
     const [auth, setAuth] = useState(false)
     const [message, setMessage] = useState('')
@@ -23,6 +26,7 @@ const Banner = () => {
         axios.post('http://localhost:3001/login', values)
             .then(res => {
                 if (res.data.Status === "Success") {
+                    setAuthen(true)
                     navigate('/book')
                 } else {
                     alert(res.data.Error)
