@@ -39,6 +39,7 @@ function App() {
       })
       .then(err => console.log(err)).finally(() => {
         console.log('Experiment completed');
+        setLoading(false)
       });
   }, [])
 
