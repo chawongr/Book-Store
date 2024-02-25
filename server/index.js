@@ -135,7 +135,7 @@ app.get("/books", (req, res) => {
 
 app.post("/books", upload.single("image"), (req, res) => {
   const sql =
-    "INSERT INTO books (`name`, `description`, `editor`, `price`, `author`, `subtitle`, `image`) VALUES (?)";
+    "INSERT INTO books (`name`, `description`, `editor`, `price`, `author`, `subtitle`, `image`, `borrow`) VALUES (?)";
   const values = [
     req.body.name,
     req.body.description,
@@ -144,6 +144,7 @@ app.post("/books", upload.single("image"), (req, res) => {
     req.body.author,
     req.body.subtitle,
     req.file.filename,
+    'Free'
   ];
 
   db.query(sql, [values], (err, data) => {
@@ -190,6 +191,24 @@ app.put("/books/:id", upload.single("image"), (req, res) => {
     return res.json({ message: "Updated successfully" });
   });
 });
+
+app.put('/books/:id/reserve', (req, res) => {
+    const bookId = req.params.id;
+    const borrowerName = req.body.borrower;
+
+    const sql = "UPDATE books SET `borrow` = ? WHERE id = ?";
+    
+    db.query(sql, [borrowerName, bookId], (err, data) => {
+        if (err) {
+            console.error({ Error: err.message });
+            res.json({ Status: 'Error', message: 'Failed to update book borrow status' });
+        } else {
+            res.json({ Status: 'Success', message: 'Book borrow status updated successfully' });
+        }
+    });
+});
+
+
 
 // ===================================================================
 

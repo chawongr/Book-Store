@@ -14,6 +14,7 @@ const Add = () => {
         author: '',
         subtitle: '',
         image: null,
+        borrow: 'Free'
     });
 
     const handleChange = (e) => {
