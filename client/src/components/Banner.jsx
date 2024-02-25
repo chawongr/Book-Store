@@ -10,6 +10,7 @@ const Banner = () => {
     const [message, setMessage] = useState('');
     const [name, setName] = useState('');
     const [values, setValues] = useState({ email: '', password: '' });
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -47,6 +48,7 @@ const Banner = () => {
                 location.reload(true);
                 setAuth(false)
                 setAuthen(false)
+                navigate('/')
             })
             .catch(err => console.log(err));
     };
@@ -66,7 +68,7 @@ const Banner = () => {
                             Rushing to the bookstore, excitement builds, craving the stories waiting on shelves. Each book holds promise, beckoning with adventures, knowledge, and escape into worlds unknown
                         </div>
                         <br />
-                        <button onClick={handleDelete} className='bg-black text-white px-12 py-2 text-[24px] rounded-full hover:scale-110 hover:duration-150 shadow-xl'><Link to="/">Log out</Link></button>
+                        <button onClick={handleDelete} className='bg-black text-white px-12 py-2 text-[24px] rounded-full hover:scale-110 hover:duration-150 shadow-xl'>Log out</button>
                     </div>
                 ) : (
                     <div className="flex flex-col items-center justify-center mx-auto h-screen w-full">
