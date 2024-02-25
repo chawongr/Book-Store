@@ -1,5 +1,5 @@
 import express from "express";
-import mysql from "mysql";
+import mysql from "mysql2";
 import cors from "cors";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
@@ -46,7 +46,8 @@ const db = mysql.createConnection({
   host: "monorail.proxy.rlwy.net",
   user: "root",
   password: "EEH4FF-5D5b-faCBH4-5bGg1Ca1-51f1",
-  database: "railway"
+  database: "railway",
+  port: 26056
 });
 
 db.connect((err) => {
@@ -209,7 +210,6 @@ app.put('/books/:id/reserve', (req, res) => {
         }
     });
 });
-
 
 
 // ===================================================================
