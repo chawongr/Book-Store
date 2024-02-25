@@ -41,10 +41,11 @@ app.use(express.static("public"));
 // ============================= Authen ===============================
 
 const db = mysql.createConnection({
-  host: "localhost",
+  host: "monorail.proxy.rlwy.net",
   user: "root",
-  password: "admin1234",
-  database: "book-store",
+  password: "EEH4FF-5D5b-faCBH4-5bGg1Ca1-51f1",
+  database: "railway",
+  port:26056
 });
 
 db.connect((err) => {
