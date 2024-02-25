@@ -89,7 +89,7 @@ const Book = () => {
                                     <div>
                                         <div className='flex flex-col mb-10'>
                                             <img
-                                                src={import.meta.env.VITE_REACT_APP_API_URL +  '/images' + book.image}
+                                                src={import.meta.env.VITE_REACT_APP_API_URL + '/images/' + book.image}
                                                 className='hover:scale-110 duration-150 w-full h-[350px] object-cover'
                                                 style={{ boxShadow: '-12px 15px 10px 2px #545353' }}
                                                 onClick={() => handleImageClick(book)}
