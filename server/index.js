@@ -33,7 +33,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["*"],
+    origin: ["https://book-store-ten-sigma.vercel.app"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true
   })
