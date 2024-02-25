@@ -18,32 +18,36 @@ function App() {
   const [name, setName] = useState('')
   const [isLoading, setLoading] = useState(true);
 
+  axios.defaults.withCredentials = true
+
   useEffect(() => {
     axios.get('http://localhost:3001')
       .then(res => {
         if (res.data.Status === "Success") {
           setAuthen(true)
+          console.log(res.data.name)
           setName(res.data.name)
         } else {
           setAuthen(false)
+          console.log(res.data.Error)
           setMessage(res.data.Error)
         }
       })
-      .then(()=>{
+      .then(() => {
         setLoading(false)
-  
+
       })
       .then(err => console.log(err))
-  })
+  }, [])
 
-  if (isLoading){
-    return(
-        <div>Loading ...</div>
+  if (isLoading) {
+    return (
+      <div>Loading ...</div>
     )
-}
+  }
 
   return (
-    <AuthContext.Provider value={{authen, setAuthen}}>
+    <AuthContext.Provider value={{ authen, setAuthen }}>
       <BrowserRouter>
         <Routes>
 

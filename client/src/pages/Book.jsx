@@ -10,7 +10,6 @@ const Book = () => {
     const [selectedBook, setSelectedBook] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
    
-
     const fetchAllBooks = async () => {
         try {
             const res = await axios.get('http://localhost:3001/books');
@@ -21,14 +20,6 @@ const Book = () => {
     };
 
     useEffect(() => {
-        // const fetchAllBooks = async () => {
-        //     try {
-        //         const res = await axios.get('http://localhost:3001/books');
-        //         setBooks(res.data);
-        //     } catch (err) {
-        //         console.log(err);
-        //     }
-        // };
         fetchAllBooks();
     }, []);
 
@@ -68,10 +59,6 @@ const Book = () => {
             console.log(err);
         }
     };
-
-
-
-
 
     return (
         <div className='h-screen'>

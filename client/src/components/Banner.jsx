@@ -2,10 +2,11 @@ import React, { useEffect, useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AuthContext } from '../util/AuthContext'
+import BannerImage from '../assets/BannerImage.svg'
 
 const Banner = () => {
 
-    const {authen,setAuthen} = useContext(AuthContext)
+    const { authen, setAuthen } = useContext(AuthContext)
 
     const [auth, setAuth] = useState(false)
     const [message, setMessage] = useState('')
@@ -14,7 +15,6 @@ const Banner = () => {
     axios.defaults.withCredentials = true
 
     const navigate = useNavigate()
-    axios.defaults.withCredentials = true
 
     const [values, setValues] = useState({
         email: '',
@@ -118,17 +118,16 @@ const Banner = () => {
                             </div>
                         </div>
                 }
-
             </div>
             <div className=' w-1/2'>
                 {
                     auth ?
                         <div className='mt-10 flex justify-end'>
-                            <img className=' w-9/12' src="https://media.discordapp.net/attachments/696701068381257771/1211054021687644210/image.png?ex=65ecccf3&is=65da57f3&hm=43fa805e9a777084d456e59a060dbacc1787f765f73a5a5afef7d7742463d447&=&format=webp&quality=lossless&width=629&height=678" alt="" />
+                            <img className=' w-9/12' src={BannerImage} alt="" />
                         </div>
                         :
                         <div className='h-screen flex items-center mx-auto'>
-                            <img className=' w-10/12' src="https://media.discordapp.net/attachments/696701068381257771/1211054021687644210/image.png?ex=65ecccf3&is=65da57f3&hm=43fa805e9a777084d456e59a060dbacc1787f765f73a5a5afef7d7742463d447&=&format=webp&quality=lossless&width=629&height=678" alt="" />
+                            <img className=' w-10/12' src={BannerImage} alt="" />
 
                         </div>
                 }

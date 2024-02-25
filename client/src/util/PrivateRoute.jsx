@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 const PrivateRoute = ({authen}) => {
     return (
-        authen ?
+        authen === true ?
             <Outlet />
             :
             <Navigate to= {"/"} />
