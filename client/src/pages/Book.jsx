@@ -22,6 +22,7 @@ const Book = () => {
     useEffect(() => {
         fetchAllBooks();
     }, []);
+    
     const handleDelete = async (id) => {
         try {
             await axios.delete(import.meta.env.VITE_REACT_APP_API_URL +  `/books/${id}` );
@@ -48,6 +49,7 @@ const Book = () => {
     );
 
     const [borrower, setBorrower] = useState('Free');
+
     const handleUpdate = async (id, borrower) => {
         try {
             const response = await axios.put(import.meta.env.VITE_REACT_APP_API_URL +  `/books/${id}/reserve`, { borrower: borrower });

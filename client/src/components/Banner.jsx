@@ -44,10 +44,10 @@ const Banner = () => {
 
     const handleDelete = () => {
         axios.get(import.meta.env.VITE_REACT_APP_API_URL +  `/logout`)
-            .then(res => {         
+            .then(res => {       
+                location.reload(true);  
                 setAuth(false)
                 setAuthen(false)
-                location.reload(true);
                 navigate('/')
             })
             .catch(err => console.log(err));
