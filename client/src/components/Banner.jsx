@@ -91,21 +91,6 @@ const Banner = () => {
                                         </label>
                                         <input onChange={handleInputChange} type="password" name="password" id="password" placeholder="••••••••" className="bg-transparent border-2 border-black text-black sm:text-[22px] rounded-[20px] focus:outline-none  block w-full p-2.5 " required />
                                     </div>
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-start">
-                                            <div className="flex items-center h-5 mt-1">
-                                                <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 border-2 border-black rounded bg-transparent" />
-                                            </div>
-                                            <div className="ml-3 text-[22px]">
-                                                <label htmlFor="remember" className="text-gray-500">
-                                                    Remember me
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <a href="#" className="text-[22px] font-medium text-black hover:underline">
-                                            Forgot password?
-                                        </a>
-                                    </div>
                                     <button type="submit" className="w-full text-white bg-black hover:bg-primary-700 focus:outline-none font-medium rounded-[20px] text-[22px] px-5 py-2.5 text-center  hover:scale-[102%] hover:duration-150 shadow-lg">
                                         Sign in
                                     </button>

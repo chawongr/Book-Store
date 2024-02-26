@@ -53,19 +53,6 @@ const Register = () => {
                   </label>
                   <input onChange={e => setValues({ ...values, password: e.target.value })} type="password" name="password" id="password" placeholder="••••••••" className="bg-transparent border-2 border-black text-gray-900 sm:text-[22px] rounded-[20px] focus:outline-none block w-full p-2.5 " required />
                 </div>
-                <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input id="terms" aria-describedby="terms" type="checkbox" className="mt-3 w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:outline-none " />
-                  </div>
-                  <div className="ml-3 text-[22px]">
-                    <label htmlFor="terms" className="font-light text-gray-500 ">
-                      I accept the
-                      <a className="font-medium text-black hover:underline ml-2">
-                        Terms and Conditions
-                      </a>
-                    </label>
-                  </div>
-                </div>
                 <button type="submit" className="w-full text-white bg-black hover:bg-primary-700 focus:ring-4 focus:outline-none font-medium rounded-[20px] text-[22px] px-5 py-2.5 text-center ">
                   Create an account
                 </button>
