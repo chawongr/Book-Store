@@ -14,7 +14,7 @@ const Register = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    axios.post(import.meta.env.VITE_REACT_APP_API_URL +  '/register', values)
+    axios.post(import.meta.env.VITE_REACT_APP_API_URL +  `/register`, values)
       .then(res => {
         if (res.data.Status === "Success") {
           navigate('/')

@@ -15,7 +15,7 @@ const Banner = () => {
 
     useEffect(() => {
         axios.defaults.withCredentials = true;
-        axios.get(import.meta.env.VITE_REACT_APP_API_URL + '/')
+        axios.get(import.meta.env.VITE_REACT_APP_API_URL + `/`)
             .then(res => {
                 if (res.data.Status === "Success") {
                     setAuth(true);
@@ -30,7 +30,7 @@ const Banner = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(import.meta.env.VITE_REACT_APP_API_URL +  '/login', values)
+        axios.post(import.meta.env.VITE_REACT_APP_API_URL +  `/login`, values)
             .then(res => {
                 if (res.data.Status === "Success") {
                     setAuthen(true);
@@ -43,7 +43,7 @@ const Banner = () => {
     };
 
     const handleDelete = () => {
-        axios.get(import.meta.env.VITE_REACT_APP_API_URL +  '/logout')
+        axios.get(import.meta.env.VITE_REACT_APP_API_URL +  `/logout`)
             .then(res => {         
                 setAuth(false)
                 setAuthen(false)

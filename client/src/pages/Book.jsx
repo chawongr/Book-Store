@@ -12,7 +12,7 @@ const Book = () => {
    
     const fetchAllBooks = async () => {
         try {
-            const res = await axios.get(import.meta.env.VITE_REACT_APP_API_URL +  '/books');
+            const res = await axios.get(import.meta.env.VITE_REACT_APP_API_URL +  `/books`);
             setBooks(res.data);
         } catch (err) {
             console.log(err);
@@ -89,7 +89,7 @@ const Book = () => {
                                     <div>
                                         <div className='flex flex-col mb-10'>
                                             <img
-                                                src={import.meta.env.VITE_REACT_APP_API_URL + '/images/' + book.image}
+                                                src={import.meta.env.VITE_REACT_APP_API_URL + `/images/` + book.image}
                                                 className='hover:scale-110 duration-150 w-full h-[350px] object-cover'
                                                 style={{ boxShadow: '-12px 15px 10px 2px #545353' }}
                                                 onClick={() => handleImageClick(book)}
@@ -123,7 +123,7 @@ const Book = () => {
 
                             <div className=' w-1/2 flex justify-center'>
                                 <img
-                                    src={import.meta.env.VITE_REACT_APP_API_URL +  '/images/' + selectedBook.image}
+                                    src={import.meta.env.VITE_REACT_APP_API_URL + `/images/` + selectedBook.image}
                                     className='w-[145px] h-[210px] object-cover'
                                     style={{ boxShadow: '-12px 15px 10px 2px #545353' }}
                                     onClick={() => handleImageClick(selectedBook)}
